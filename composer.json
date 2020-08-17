@@ -9,8 +9,9 @@
     },
     "require": {
         "php": "^7.4",
+        "ext-json": "*",
         "phpseclib/phpseclib": "^2.0",
-        "ext-json": "*"
+        "vkcom/vk-php-sdk": "^5.101"
     },
     "autoload": {
         "psr-4": {
