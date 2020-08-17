@@ -1,0 +1,8 @@
+.idea
+*.phar
+*.cache
+vendor
+.DS_Store
+coverage.xml
+*.swp
+*.tmp

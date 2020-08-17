@@ -1,0 +1,26 @@
+{
+    "name": "postuf/vkontakte-api-lib",
+    "description": "Vkontakte scenario-based API aimed at OSINT",
+    "homepage": "https://github.com/Postuf/vkontakte-api-lib",
+    "license": "MIT",
+    "type": "library",
+    "require-dev": {
+        "phpunit/phpunit": "^9.0"
+    },
+    "require": {
+        "php": "^7.4",
+        "phpseclib/phpseclib": "^2.0",
+        "ext-json": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "VkontakeOSINT\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "": ["tests/", "examples/"]
+        }
+    },
+    "prefer-stable": true
+}
