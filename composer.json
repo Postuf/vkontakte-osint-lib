@@ -5,11 +5,12 @@
     "license": "MIT",
     "type": "library",
     "require-dev": {
-        "phpunit/phpunit": "^9.0"
+        "phpunit/phpunit": "^8.0"
     },
     "require": {
         "php": "^7.4",
         "ext-json": "*",
+        "ext-curl": "*",
         "phpseclib/phpseclib": "^2.0",
         "vkcom/vk-php-sdk": "^5.101"
     },

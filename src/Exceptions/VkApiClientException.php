@@ -1,9 +1,11 @@
 <?php
-namespace App\Impl\VK\Exceptions;
+declare(strict_types=1);
+
+namespace VkontakeOSINT\Exceptions;
 
 use Exception;
 
-class VKException extends Exception
+class VkApiClientException extends Exception
 {
     public const USER_AUTHORIZATION_FAILED = 5;
     public const NOT_HAVE_PERMISSION_FOR_THIS_ACTION = 7;

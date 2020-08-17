@@ -1,0 +1,9 @@
+finder:
+    exclude:
+        src/Exceptions
+
+enabled:
+    - psr2_braces
+
+disabled:
+    - phpdoc_summary

@@ -1,0 +1,1 @@
+# Vkontakte OSINT scenario library
