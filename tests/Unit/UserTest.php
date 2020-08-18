@@ -22,7 +22,7 @@ class UserTest extends TestCase
             "photo_100": "https://vk.com/images/deactivated_100.png"
         }';
 
-        $user = User::getUser(json_decode($node, true, 512, JSON_THROW_ON_ERROR));
+        $user = User::get(json_decode($node, true, 512, JSON_THROW_ON_ERROR));
         self::assertEquals(3, $user->getStatus(), 'Getting wrong status for deleted profile');
 
     }
@@ -42,7 +42,7 @@ class UserTest extends TestCase
             "online": 0
         }';
 
-        $user = User::getUser(json_decode($node, true, 512, JSON_THROW_ON_ERROR));
+        $user = User::get(json_decode($node, true, 512, JSON_THROW_ON_ERROR));
         self::assertEquals(2, $user->getStatus(), 'Getting wrong status for profile with hide status');
     }
 
@@ -66,7 +66,7 @@ class UserTest extends TestCase
             }
         }';
 
-        $user = User::getUser(json_decode($node, true, 512, JSON_THROW_ON_ERROR));
+        $user = User::get(json_decode($node, true, 512, JSON_THROW_ON_ERROR));
         self::assertEquals(1, $user->getStatus(), 'Getting wrong status for profile with online status');
     }
 
@@ -90,7 +90,7 @@ class UserTest extends TestCase
             }
         }';
 
-        $user = User::getUser(json_decode($node, true, 512, JSON_THROW_ON_ERROR));
+        $user = User::get(json_decode($node, true, 512, JSON_THROW_ON_ERROR));
         self::assertEquals(0, $user->getStatus(), 'Getting wrong status for profile with offline status');
     }
 
@@ -129,8 +129,8 @@ class UserTest extends TestCase
         }';
 
 
-        $user1 = User::getUser(json_decode($node1, true, 512, JSON_THROW_ON_ERROR));
-        $user2 = User::getUser(json_decode($node2, true, 512, JSON_THROW_ON_ERROR));
+        $user1 = User::get(json_decode($node1, true, 512, JSON_THROW_ON_ERROR));
+        $user2 = User::get(json_decode($node2, true, 512, JSON_THROW_ON_ERROR));
         self::assertEquals(6, $user1->getStatus(), 'Getting wrong status for profile with unknown status');
         self::assertEquals(4, $user2->getStatus(), 'Getting wrong status for profile that not have status');
     }
@@ -154,7 +154,7 @@ class UserTest extends TestCase
             }
         }';
 
-        $user = User::getUser(json_decode($node, true, 512, JSON_THROW_ON_ERROR));
+        $user = User::get(json_decode($node, true, 512, JSON_THROW_ON_ERROR));
         self::assertNull($user, 'Getting wrong response for user without id');
     }
 }

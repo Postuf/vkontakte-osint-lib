@@ -15,6 +15,8 @@ class User
     private int $timestamp;
     private int $status;
     private string $photo;
+    private string $firstName;
+    private string $lastName;
 
     /**
      * User constructor.
@@ -23,13 +25,24 @@ class User
      * @param int    $timestamp
      * @param int    $status
      * @param string $photo
+     * @param string $firstName
+     * @param string $lastName
      */
-    private function __construct(int $profileId, int $timestamp, int $status, string $photo)
+    private function __construct(
+        int $profileId,
+        int $timestamp,
+        int $status,
+        string $photo,
+        string $firstName,
+        string $lastName
+    )
     {
         $this->profileId = $profileId;
         $this->timestamp = $timestamp;
         $this->status = $status;
         $this->photo = $photo;
+        $this->firstName = $firstName;
+        $this->lastName = $lastName;
     }
 
     /**
@@ -37,11 +50,13 @@ class User
      *
      * @return null|static
      */
-    public static function getUser(array $node): ?self
+    public static function get(array $node): ?self
     {
         if (isset($node['id'])) {
 
             $profileId = (int)$node['id'];
+            $firstName = $node['first_name'];
+            $lastName = $node['last_name'];
             $timestamp = (int) ($node['last_seen']['time'] ?? 0);
             $photo = $node['photo_100'] ?? '';
             $isDelete = isset($node['deactivated']);
@@ -61,7 +76,7 @@ class User
                 $status = self::USER_UNKNOWN_STATUS;
             }
 
-            $user = new self($profileId, $timestamp, $status, $photo);
+            $user = new self($profileId, $timestamp, $status, $photo, $firstName, $lastName);
         }
 
         return $user ?? null;
@@ -97,5 +112,21 @@ class User
     public function getPhoto(): string
     {
         return $this->photo;
+    }
+
+    /**
+     * @return string
+     */
+    public function getFirstName(): string
+    {
+        return $this->firstName;
+    }
+
+    /**
+     * @return string
+     */
+    public function getLastName(): string
+    {
+        return $this->lastName;
     }
 }

@@ -12,6 +12,8 @@
         "ext-json": "*",
         "ext-curl": "*",
         "phpseclib/phpseclib": "^2.0",
+        "react/http": "^0.8.4",
+        "react/http-client": "^0.5.9",
         "vkcom/vk-php-sdk": "^5.101"
     },
     "autoload": {

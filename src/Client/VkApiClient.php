@@ -18,7 +18,6 @@ class VkApiClient
 
     private VKSdk $vkClient;
     private string $authKey;
-    private array $profiles = [];
 
     /**
      * @param string $authKey
@@ -79,7 +78,7 @@ class VkApiClient
             ]);
 
             foreach ($nodes as $node) {
-                $user = User::getUser($node);
+                $user = User::get($node);
                 if (is_null($user)) {
                     continue;
                 }

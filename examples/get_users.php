@@ -13,9 +13,12 @@ try{
 } catch (VkException $e) {
     print_r($e); die;
 }
+
 foreach ($users as $user) {
     echo '=============================' . PHP_EOL;
     echo 'Profile: ' . $user->getProfileId() . PHP_EOL;
+    echo 'FirstName: ' . $user->getFirstName() . PHP_EOL;
+    echo 'LastName: ' . $user->getLastName() . PHP_EOL;
     echo 'Status: ' . $user->getStatus() . PHP_EOL;
     echo 'Timestamp: ' . $user->getTimestamp() . PHP_EOL;
     echo 'Photo: ' . $user->getPhoto() . PHP_EOL;
