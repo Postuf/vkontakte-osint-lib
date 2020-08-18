@@ -1,0 +1,6 @@
+image:
+    file: Dockerfile
+
+tasks:
+    - init: 'composer install'
+      command: 'echo "php examples/get_users.php to reuse existing account"'
