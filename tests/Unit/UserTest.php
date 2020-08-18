@@ -131,7 +131,7 @@ class UserTest extends TestCase
 
         $user1 = User::getUser(json_decode($node1, true, 512, JSON_THROW_ON_ERROR));
         $user2 = User::getUser(json_decode($node2, true, 512, JSON_THROW_ON_ERROR));
-        self::assertEquals(4, $user1->getStatus(), 'Getting wrong status for profile with unknown status');
+        self::assertEquals(6, $user1->getStatus(), 'Getting wrong status for profile with unknown status');
         self::assertEquals(4, $user2->getStatus(), 'Getting wrong status for profile that not have status');
     }
 

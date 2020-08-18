@@ -56,41 +56,20 @@ class VkApiClient
     /**
      * @param array $profiles
      *
-     * @throws VkException
-     */
-    public function addProfiles(array $profiles): void
-    {
-        $profilesCount = count($profiles) + count($this->profiles);
-        if ($profilesCount > self::PROFILES_LIMIT_COUNT) {
-            throw new VkException("Too much profiles $profilesCount", VkException::TOO_MUCH_PROFILES_COUNT);
-        }
-
-        foreach ($profiles as $profile) {
-            $this->profiles[$profile] = $profile;
-        }
-    }
-
-    /**
-     * @param array $profiles
-     */
-    public function deleteProfiles(array $profiles): void
-    {
-        foreach ($profiles as $profile) {
-            unset($this->profiles[$profile]);
-        }
-    }
-
-    /**
      * @return User[]
      * @throws VkException
-     *
      */
-    public function getUsers(): array
+    public function getUsers(array $profiles): array
     {
+        $count = count($profiles);
+        if ($count > self::PROFILES_LIMIT_COUNT) {
+            throw new VkException("Too much profiles $count", VkException::TOO_MUCH_PROFILES_COUNT);
+        }
+
         $users = [];
         try {
             $nodes = $this->vkClient->users()->get($this->authKey, [
-                'user_ids' => $this->profiles,
+                'user_ids' => $profiles,
                 'fields' => [
                     'id',
                     'last_seen',

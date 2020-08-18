@@ -27,7 +27,7 @@ class VkApiClientTest extends TestCase
         }
         $this->expectException(VkException::class);
         $this->expectExceptionCode(VkException::TOO_MUCH_PROFILES_COUNT);
-        $this->client->addProfiles($profiles);
+        $this->client->getUsers($profiles);
     }
 
     /**
@@ -37,6 +37,6 @@ class VkApiClientTest extends TestCase
     {
         $this->expectException(VkException::class);
         $this->expectExceptionCode(VkException::BANNED_EXCEPTION);
-        $this->client->getUsers();
+        $this->client->getUsers([]);
     }
 }
