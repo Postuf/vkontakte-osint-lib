@@ -8,11 +8,8 @@ use VkontakeOSINT\Exceptions\VkException;
 
 $vkClient = new VkApiClient('275a5d3a0f9a1fd8e455fbe90b8a4a70b6334393a8dda76195bde501d9776756a1e249c763882c942fe41');
 
-$vkClient->addProfiles([1, 3, 56, 521118799]);
-$vkClient->deleteProfiles([56]);
-
 try{
-    $users = $vkClient->getUsers();
+    $users = $vkClient->getUsers([1, 3, 56, 521118799]);
 } catch (VkException $e) {
     print_r($e); die;
 }

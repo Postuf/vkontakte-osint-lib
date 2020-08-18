@@ -52,7 +52,10 @@ class User
                 $status = self::USER_DELETE_STATUS;
             } elseif($isHidden) {
                 $status = self::USER_HIDE_STATUS;
-            } elseif ($isOnline === self::USER_OFFLINE_STATUS || $isOnline === self::USER_ONLINE_STATUS) {
+            } elseif (self::USER_OFFLINE_STATUS === $isOnline ||
+                self::USER_ONLINE_STATUS === $isOnline ||
+                !is_null($isOnline)
+            ) {
                 $status = $isOnline;
             } else {
                 $status = self::USER_UNKNOWN_STATUS;
