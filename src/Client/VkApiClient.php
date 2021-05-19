@@ -12,6 +12,8 @@ use VkontakeOSINT\Models\User;
 
 class VkApiClient
 {
+    private const API_VERSION = '5.130';
+
     private const VK_CONNECT_TIMEOUT_SEC = 1;
     private const VK_TIMEOUT_SEC         = 2;
     private const PROFILES_LIMIT_COUNT   = 800;
@@ -27,7 +29,7 @@ class VkApiClient
      */
     public function __construct(string $authKey, array $curlConfig = [])
     {
-        $this->vkClient = new VKSdk();
+        $this->vkClient = new VKSdk(self::API_VERSION);
         $this->authKey = $authKey;
 
         $vkRequest = (new ReflectionClass($this->vkClient))->getProperty('request');

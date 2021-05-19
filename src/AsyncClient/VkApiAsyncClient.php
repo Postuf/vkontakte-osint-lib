@@ -45,7 +45,7 @@ class VkApiAsyncClient
             static function (Response $response) use ($onError, $onSuccess) {
                 $response->on(
                     'data',
-                    static function (?string $serializedResponseBody) use ($response, $onError, $onSuccess) {
+                    static function (?string $serializedResponseBody) use ($onError, $onSuccess) {
                         $response = json_decode($serializedResponseBody, true, 512, JSON_THROW_ON_ERROR);
                         if (isset($response['response'][0])) {
                             $onSuccess(User::get($response['response'][0]));

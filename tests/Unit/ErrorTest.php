@@ -8,6 +8,9 @@ use VkontakeOSINT\Models\Error;
 
 class ErrorTest extends TestCase
 {
+    /**
+     * get ban for bot
+     */
     public function test_get_ban_error(): void
     {
         $json1 = '{
@@ -67,6 +70,9 @@ class ErrorTest extends TestCase
         self::assertEquals(1, $error6->getCode(), 'wrong code for 29');
     }
 
+    /**
+     * get not ban code for bot
+     */
     public function test_get_not_ban_exception(): void
     {
         $json = '{
