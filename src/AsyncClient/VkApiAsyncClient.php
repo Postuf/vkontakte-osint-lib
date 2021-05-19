@@ -11,7 +11,7 @@ use VkontakeOSINT\Models\User;
 
 class VkApiAsyncClient
 {
-    private const GET_INFO_URL = 'https://api.vk.com/method/users.get?user_ids={profileId}&fields=last_seen,online,id,photo_100&v=5.103&access_token={accessToken}';
+    private const GET_INFO_URL = 'https://api.vk.com/method/users.get?user_ids={profileId}&fields=last_seen,online,id,photo_100&v=5.130&access_token={accessToken}';
 
     private Client $asyncClient;
     private string $authKey;
