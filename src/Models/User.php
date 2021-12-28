@@ -5,45 +5,18 @@ namespace VkontakeOSINT\Models;
 
 class User
 {
-    private const USER_OFFLINE_STATUS = 0;
-    private const USER_ONLINE_STATUS = 1;
     private const USER_HIDE_STATUS = 2;
     private const USER_DELETE_STATUS = 3;
     private const USER_UNKNOWN_STATUS = 4;
 
-    private int $profileId;
-    private int $timestamp;
-    private int $status;
-    private string $photo;
-    private string $firstName;
-    private string $lastName;
-
-    /**
-     * User constructor.
-     *
-     * @param int    $profileId
-     * @param int    $timestamp
-     * @param int    $status
-     * @param string $photo
-     * @param string $firstName
-     * @param string $lastName
-     */
     private function __construct(
-        int $profileId,
-        int $timestamp,
-        int $status,
-        string $photo,
-        string $firstName,
-        string $lastName
-    )
-    {
-        $this->profileId = $profileId;
-        $this->timestamp = $timestamp;
-        $this->status = $status;
-        $this->photo = $photo;
-        $this->firstName = $firstName;
-        $this->lastName = $lastName;
-    }
+        public readonly int $profileId,
+        public readonly int $timestamp,
+        public readonly int $status,
+        public readonly string $photo,
+        public readonly string $firstName,
+        public readonly string $lastName
+    ) {}
 
     /**
      * @param array $node
@@ -67,10 +40,7 @@ class User
                 $status = self::USER_DELETE_STATUS;
             } elseif($isHidden) {
                 $status = self::USER_HIDE_STATUS;
-            } elseif (self::USER_OFFLINE_STATUS === $isOnline ||
-                self::USER_ONLINE_STATUS === $isOnline ||
-                !is_null($isOnline)
-            ) {
+            } elseif (!is_null($isOnline)) {
                 $status = $isOnline;
             } else {
                 $status = self::USER_UNKNOWN_STATUS;
@@ -80,53 +50,5 @@ class User
         }
 
         return $user ?? null;
-    }
-
-    /**
-     * @return int
-     */
-    public function getProfileId(): int
-    {
-        return $this->profileId;
-    }
-
-    /**
-     * @return int
-     */
-    public function getTimestamp(): int
-    {
-        return $this->timestamp;
-    }
-
-    /**
-     * @return int
-     */
-    public function getStatus(): int
-    {
-        return $this->status;
-    }
-
-    /**
-     * @return string
-     */
-    public function getPhoto(): string
-    {
-        return $this->photo;
-    }
-
-    /**
-     * @return string
-     */
-    public function getFirstName(): string
-    {
-        return $this->firstName;
-    }
-
-    /**
-     * @return string
-     */
-    public function getLastName(): string
-    {
-        return $this->lastName;
     }
 }

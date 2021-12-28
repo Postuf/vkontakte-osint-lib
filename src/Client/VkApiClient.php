@@ -19,7 +19,6 @@ class VkApiClient
     private const PROFILES_LIMIT_COUNT   = 800;
 
     private VKSdk $vkClient;
-    private string $authKey;
 
     /**
      * @param string $authKey
@@ -27,10 +26,9 @@ class VkApiClient
      *
      * @throws ReflectionException
      */
-    public function __construct(string $authKey, array $curlConfig = [])
+    public function __construct(private string $authKey, array $curlConfig = [])
     {
         $this->vkClient = new VKSdk(self::API_VERSION);
-        $this->authKey = $authKey;
 
         $vkRequest = (new ReflectionClass($this->vkClient))->getProperty('request');
         $vkRequest->setAccessible(true);

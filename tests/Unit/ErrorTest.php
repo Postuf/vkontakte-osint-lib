@@ -62,12 +62,12 @@ class ErrorTest extends TestCase
         $error5 = Error::get(json_decode($json5, true, 512, JSON_THROW_ON_ERROR));
         $error6 = Error::get(json_decode($json6, true, 512, JSON_THROW_ON_ERROR));
 
-        self::assertEquals(1, $error1->getCode(), 'wrong code for 5');
-        self::assertEquals(1, $error2->getCode(), 'wrong code for 7');
-        self::assertEquals(1, $error3->getCode(), 'wrong code for 15');
-        self::assertEquals(1, $error4->getCode(), 'wrong code for 27');
-        self::assertEquals(1, $error5->getCode(), 'wrong code for 28');
-        self::assertEquals(1, $error6->getCode(), 'wrong code for 29');
+        self::assertEquals(1, $error1->code, 'wrong code for 5');
+        self::assertEquals(1, $error2->code, 'wrong code for 7');
+        self::assertEquals(1, $error3->code, 'wrong code for 15');
+        self::assertEquals(1, $error4->code, 'wrong code for 27');
+        self::assertEquals(1, $error5->code, 'wrong code for 28');
+        self::assertEquals(1, $error6->code, 'wrong code for 29');
     }
 
     /**
@@ -83,7 +83,7 @@ class ErrorTest extends TestCase
         }';
 
         $error = Error::get(json_decode($json, true, 512, JSON_THROW_ON_ERROR));
-        self::assertEquals(6, $error->getCode(), 'wrong code for 6');
+        self::assertEquals(6, $error->code, 'wrong code for 6');
     }
 
     public function test_get_not_valid_response(): void
@@ -91,8 +91,8 @@ class ErrorTest extends TestCase
         $json = '{"message":"Page not found"}';
 
         $error1 = Error::get(json_decode($json, true, 512, JSON_THROW_ON_ERROR));
-        self::assertEquals(0, $error1->getCode(), 'wrong code for not valid response');
-        self::assertEquals($json, $error1->getMessage(), 'wrong message for not valid response');
+        self::assertEquals(0, $error1->code, 'wrong code for not valid response');
+        self::assertEquals($json, $error1->message, 'wrong message for not valid response');
 
     }
 }

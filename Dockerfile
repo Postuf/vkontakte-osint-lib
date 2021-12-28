@@ -1,4 +1,4 @@
-FROM php:7.4-cli
+FROM php:8.1-cli
 
 LABEL version="1.0.0"
 LABEL description="Postuf Vkontakte OSINT Library"

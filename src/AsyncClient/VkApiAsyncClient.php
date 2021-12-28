@@ -14,7 +14,6 @@ class VkApiAsyncClient
     private const GET_INFO_URL = 'https://api.vk.com/method/users.get?user_ids={profileId}&fields=last_seen,online,id,photo_100&v=5.130&access_token={accessToken}';
 
     private Client $asyncClient;
-    private string $authKey;
     private StreamSelectLoop $loop;
 
     /**
@@ -22,11 +21,10 @@ class VkApiAsyncClient
      *
      * @param string $authKey
      */
-    public function __construct(string $authKey)
+    public function __construct(private string $authKey)
     {
         $this->loop = new StreamSelectLoop();
         $this->asyncClient = new Client($this->loop);
-        $this->authKey = $authKey;
     }
 
     /**
