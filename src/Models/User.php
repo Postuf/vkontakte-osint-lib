@@ -10,12 +10,12 @@ class User
     private const USER_UNKNOWN_STATUS = 4;
 
     private function __construct(
-        public readonly int $profileId,
-        public readonly int $timestamp,
-        public readonly int $status,
-        public readonly string $photo,
-        public readonly string $firstName,
-        public readonly string $lastName
+        private int $profileId,
+        private int $timestamp,
+        private int $status,
+        private string $photo,
+        private string $firstName,
+        private string $lastName
     ) {}
 
     /**
@@ -50,5 +50,53 @@ class User
         }
 
         return $user ?? null;
+    }
+
+    /**
+     * @return int
+     */
+    public function getProfileId(): int
+    {
+        return $this->profileId;
+    }
+
+    /**
+     * @return int
+     */
+    public function getTimestamp(): int
+    {
+        return $this->timestamp;
+    }
+
+    /**
+     * @return int
+     */
+    public function getStatus(): int
+    {
+        return $this->status;
+    }
+
+    /**
+     * @return string
+     */
+    public function getPhoto(): string
+    {
+        return $this->photo;
+    }
+
+    /**
+     * @return string
+     */
+    public function getFirstName(): string
+    {
+        return $this->firstName;
+    }
+
+    /**
+     * @return string
+     */
+    public function getLastName(): string
+    {
+        return $this->lastName;
     }
 }

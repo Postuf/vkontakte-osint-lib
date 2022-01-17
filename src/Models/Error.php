@@ -16,7 +16,7 @@ class Error
      * @param int    $code
      * @param string $message
      */
-    private function __construct(public readonly int $code, public readonly string $message) {}
+    private function __construct(private int $code, private string $message) {}
 
     /**
      * @param array $node
@@ -33,5 +33,21 @@ class Error
         }
 
         return $error ?? new self(self::UNKNOWN_RESPONSE_CODE, json_encode($node, JSON_THROW_ON_ERROR));
+    }
+
+    /**
+     * @return int
+     */
+    public function getCode(): int
+    {
+        return $this->code;
+    }
+
+    /**
+     * @return string
+     */
+    public function getMessage(): string
+    {
+        return $this->message;
     }
 }

@@ -15,12 +15,12 @@ $onSuccess = static function (?User $user) use (&$run){
     echo 'Success' . PHP_EOL;
     if ($user instanceof User) {
         echo '=============================' . PHP_EOL;
-        echo 'Profile: ' . $user->profileId . PHP_EOL;
-        echo 'FirstName: ' . $user->firstName . PHP_EOL;
-        echo 'LastName: ' . $user->lastName . PHP_EOL;
-        echo 'Status: ' . $user->status . PHP_EOL;
-        echo 'Timestamp: ' . $user->timestamp . PHP_EOL;
-        echo 'Photo: ' . $user->photo . PHP_EOL;
+        echo 'Profile: ' . $user->getProfileId() . PHP_EOL;
+        echo 'FirstName: ' . $user->getFirstName() . PHP_EOL;
+        echo 'LastName: ' . $user->getLastName() . PHP_EOL;
+        echo 'Status: ' . $user->getStatus() . PHP_EOL;
+        echo 'Timestamp: ' . $user->getTimestamp() . PHP_EOL;
+        echo 'Photo: ' . $user->getPhoto() . PHP_EOL;
         echo '=============================' . PHP_EOL;
     }
 
@@ -30,8 +30,8 @@ $onSuccess = static function (?User $user) use (&$run){
 $onError = static function (VkontakeOSINT\Models\Error $error) use (&$run) {
     $run = false;
     echo '=============================' . PHP_EOL;
-    echo 'Code: ' . $error->code . PHP_EOL;
-    echo 'Message: ' . $error->message . PHP_EOL;
+    echo 'Code: ' . $error->getCode() . PHP_EOL;
+    echo 'Message: ' . $error->getMessage() . PHP_EOL;
     echo '=============================' . PHP_EOL;
 };
 

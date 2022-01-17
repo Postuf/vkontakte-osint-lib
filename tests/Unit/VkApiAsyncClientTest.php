@@ -22,7 +22,7 @@ class VkApiAsyncClientTest extends TestCase
         $code = 0;
         $run = true;
         $onError = static function (Error $error) use (&$code, &$run) {
-           $code = $error->code;
+           $code = $error->getCode();
            $run = false;
         };
 
