@@ -19,7 +19,7 @@ With our libi you can easily set any cURL configuration. Our library makes it po
 
 ## Requirements
 
-* PHP 8.0+
+* PHP 7.4+
 * Composer
   * phpseclib
 

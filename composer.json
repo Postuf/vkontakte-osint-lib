@@ -5,14 +5,15 @@
     "license": "MIT",
     "type": "library",
     "require-dev": {
+        "roave/security-advisories": "dev-master",
         "phpunit/phpunit": "^8.0"
     },
     "require": {
-        "php": "^8.0",
+        "php": "^7.4",
         "ext-json": "*",
         "ext-curl": "*",
         "phpseclib/phpseclib": "^2.0",
-        "react/http": "^0.8.4",
+        "react/http": "^1.0.0",
         "react/http-client": "^0.5.9",
         "vkcom/vk-php-sdk": "^5.101"
     },

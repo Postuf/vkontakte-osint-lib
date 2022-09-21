@@ -8,6 +8,9 @@ use VkontakeOSINT\Exceptions\VkException;
 
 class Error
 {
+    private int $code;
+    private string $message;
+
     private const UNKNOWN_RESPONSE_CODE = 0;
 
     /**
@@ -16,7 +19,11 @@ class Error
      * @param int    $code
      * @param string $message
      */
-    private function __construct(private int $code, private string $message) {}
+    private function __construct(int $code, string $message)
+    {
+        $this->code = $code;
+        $this->message = $message;
+    }
 
     /**
      * @param array $node

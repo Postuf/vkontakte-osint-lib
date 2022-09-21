@@ -5,18 +5,32 @@ namespace VkontakeOSINT\Models;
 
 class User
 {
+    private int $profileId;
+    private int $timestamp;
+    private int $status;
+    private string $photo;
+    private string $firstName;
+    private string $lastName;
+
     private const USER_HIDE_STATUS = 2;
     private const USER_DELETE_STATUS = 3;
     private const USER_UNKNOWN_STATUS = 4;
 
     private function __construct(
-        private int $profileId,
-        private int $timestamp,
-        private int $status,
-        private string $photo,
-        private string $firstName,
-        private string $lastName
-    ) {}
+        int $profileId,
+        int $timestamp,
+        int $status,
+        string $photo,
+        string $firstName,
+        string $lastName
+    ) {
+        $this->profileId = $profileId;
+        $this->timestamp = $timestamp;
+        $this->status = $status;
+        $this->photo = $photo;
+        $this->firstName = $firstName;
+        $this->lastName = $lastName;
+    }
 
     /**
      * @param array $node

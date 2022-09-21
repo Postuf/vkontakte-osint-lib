@@ -16,13 +16,16 @@ class VkApiAsyncClient
     private Client $asyncClient;
     private StreamSelectLoop $loop;
 
+    private string $authKey;
+
     /**
      * VkApiAsyncClient constructor.
      *
      * @param string $authKey
      */
-    public function __construct(private string $authKey)
+    public function __construct(string $authKey)
     {
+        $this->authKey = $authKey;
         $this->loop = new StreamSelectLoop();
         $this->asyncClient = new Client($this->loop);
     }
