@@ -8,7 +8,7 @@
         "phpunit/phpunit": "^8.0"
     },
     "require": {
-        "php": "^8.0",
+        "php": "^7.4",
         "ext-json": "*",
         "ext-curl": "*",
         "phpseclib/phpseclib": "^2.0",
