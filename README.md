@@ -2,7 +2,7 @@
 
 [![Gitpod ready-to-code](https://img.shields.io/badge/Gitpod-ready--to--code-blue?logo=gitpod)](https://gitpod.io/#https://github.com/Postuf/vkontakte-osint-lib)
 
-[![Build Status](https://travis-ci.org/postuf/vkontakte-osint-lib.svg?branch=master)](https://travis-ci.org/postuf/vkontakte-osint-lib) [![codecov](https://codecov.io/gh/Postuf/vkontakte-osint-lib/branch/master/graph/badge.svg)](https://codecov.io/gh/Postuf/vkontakte-osint-lib)
+[![codecov](https://codecov.io/gh/Postuf/vkontakte-osint-lib/branch/master/graph/badge.svg)](https://codecov.io/gh/Postuf/vkontakte-osint-lib)
 
 ## Description
 
